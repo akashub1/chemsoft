@@ -14,7 +14,7 @@
          header("location:index.php"); 
      }
     
-    $sql="select * from notice where admin='$email";
+    $sql="select * from notice where admin='$email'";
 $result=mysqli_query($con,$sql);
     
     

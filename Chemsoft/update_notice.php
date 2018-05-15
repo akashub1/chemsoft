@@ -5,7 +5,7 @@ include("session.php");
 session_start();
 
 $notice=$_POST['notice'];
-$admin='owner';
+$admin=$email;
 $date= date("Y-m-d");
 
 

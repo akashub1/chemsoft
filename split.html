@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+    font-family: Arial;
+    color: white;
+}
+
+.split {
+    height: 100%;
+    width: 30%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.left {
+    left: 0;
+    width:70%;
+    background-color: lavender;
+}
+
+.right {
+    right: 0;
+    
+    background-color: lavender ;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
+
+#div1 {
+    width: 900px;
+    height: 700px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+</style>
+<script>
+
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+     
+     var nodeCopy = document.getElementById(data).cloneNode(true);
+  nodeCopy.id = "newId"; /* We cannot use the same ID */
+  ev.target.appendChild(nodeCopy);
+}
+
+
+</script>
+</head>
+<body>
+
+<div class="split left">
+  <div class="centered">  
+  <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    
+ 
+
+  </div>
+</div>
+
+<div class="split right">
+  <div class="centered">
+<img id="drag1" src="salt.png" draggable="true" ondragstart="drag(event)" width="250" height="90" >    
+<img id="drag2" src="tt.png" draggable="true" ondragstart="drag(event)" width="250" height="90"  >
+<img id="drag3" src="spatula.png" draggable="true" ondragstart="drag(event)" width="250" height="90" >
+<img id="drag4" src="hcl.png" draggable="true" ondragstart="drag(event)" width="250" height="90" >
+<img id="drag5" src="clasp.png" draggable="true" ondragstart="drag(event)" width="250" height="90" >
+
+</div>
+  </div>
+</div>
+     
+</body>
+</html> 
+
